@@ -1,11 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import Collection from "layouts/AlnSphereCreatures/Collection/Collection";
 import Gallery from "layouts/Marketplace/Gallery/Gallery";
 import Dashboard from "layouts/Marketplace/Dashboard/Dashboard";
 import questionMark from "assets/images/question-mark.png";
-import Cards from "layouts/AlnSphereCreatures/MarketPlace/Cards";
 import CardComponent from "components/CardComponent";
 import DataContextProvider from "context/DataContextProvider";
 
@@ -17,18 +16,6 @@ const AlnSphereCreatures = React.lazy(() =>
 );
 
 function App() {
-  const [ETHRate, setETHRate] = useState(3797);
-  const [cardLayout, setCardLayout] = useState("Columns");
-  const [searchInput, setSearchInput] = useState("");
-  const [checkboxes, setCheckboxes] = useState({
-    alns: false,
-    legendary: false,
-    rare: false,
-    epic: false,
-    common: false,
-    unCommon: false,
-  });
-
   return (
     <DataContextProvider>
       <Router>
