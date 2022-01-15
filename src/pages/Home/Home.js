@@ -54,7 +54,7 @@ function Home() {
         </div>
       ) : null}
 
-      <Link to="/creatures" target="_blank" className="dashboard-call-center">
+      <Link to="/marketplace" target="_blank" className="dashboard-call-center">
         <AiTwotoneShop />
       </Link>
 

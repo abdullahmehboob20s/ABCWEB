@@ -6,16 +6,18 @@ import RecentlySold from "./RecentlySold/RecentlySold";
 
 function Dashboard() {
   return (
-    <div className={styles.dashboard}>
-      <div className="mb-40px">
-        <StatusBar />
-      </div>
-
-      <div className={styles.marketStats}>
-        <div className="mb-50px">
-          <RecentlyListed />
+    <div className="MARKETPLACE_CONTENT">
+      <div className={styles.dashboard}>
+        <div className="mb-40px">
+          <StatusBar />
         </div>
-        <RecentlySold />
+
+        <div className={styles.marketStats}>
+          <div className="mb-50px">
+            <RecentlyListed />
+          </div>
+          <RecentlySold />
+        </div>
       </div>
     </div>
   );

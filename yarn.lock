@@ -9542,6 +9542,11 @@
   "resolved" "https://registry.npmjs.org/react-three-fiber/-/react-three-fiber-0.0.0-deprecated.tgz"
   "version" "0.0.0-deprecated"
 
+"react-url-image-downloader@^1.0.2":
+  "integrity" "sha512-7BMYIZnsgWTr4AqpQqJ7lJGNsQ67SxIeREp2jytQnopxcUk8eLyqOHj3r+cKyTnGroS8rb4o0GPFjTkBvENlAg=="
+  "resolved" "https://registry.npmjs.org/react-url-image-downloader/-/react-url-image-downloader-1.0.2.tgz"
+  "version" "1.0.2"
+
 "react-use-measure@^2.1.1":
   "integrity" "sha512-nocZhN26cproIiIduswYpV5y5lQpSQS1y/4KuvUCjSKmw7ZWIS/+g3aFnX3WdBkyuGUtTLif3UTqnLLhbDoQig=="
   "resolved" "https://registry.npmjs.org/react-use-measure/-/react-use-measure-2.1.1.tgz"

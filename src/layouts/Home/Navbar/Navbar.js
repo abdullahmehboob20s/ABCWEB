@@ -45,10 +45,18 @@ function Navbar() {
       <div className="container-wrapper">
         <div className={styles.navbar}>
           <div className={styles.navbarLeft}>
-            <a href="https://twitter.com/AlnSphere" target="_blank" rel="noreferrer">
+            <a
+              href="https://twitter.com/AlnSphere"
+              target="_blank"
+              rel="noreferrer"
+            >
               <ButtonHover iconSize="1.2rem" icon={<FaTwitter />} />
             </a>
-            <a href="https://discord.com/invite/YgeEwVa6Yn" target="_blank" rel="noreferrer">
+            <a
+              href="https://discord.com/invite/YgeEwVa6Yn"
+              target="_blank"
+              rel="noreferrer"
+            >
               <ButtonHover iconSize="1.2rem" icon={<BsDiscord />} />
             </a>
             <a
@@ -73,7 +81,7 @@ function Navbar() {
             </Link>
           </div>
           <div className={styles.navbarRight}>
-            {/* <Link to="/creatures" target="_blank">
+            {/* <Link to="/marketplace" target="_blank">
               <ButtonHover iconSize="1.2rem" icon={<AiTwotoneShop />} />
             </Link> */}
             <TriShapeButton title="Connect Wallet" />
