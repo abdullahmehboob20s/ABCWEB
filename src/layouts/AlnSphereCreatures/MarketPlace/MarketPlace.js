@@ -228,71 +228,202 @@ function MarketPlace() {
               </div>
             </div>
 
-            <TabPan tabIndex={1}>
-              <Cards
-                type="alns"
-                ETHRate={ETHRate}
-                cardLayout={cardLayout}
-                setCardLayout={setCardLayout}
-                checkboxes={checkboxes}
-                searchInput={searchInput}
-              />
-            </TabPan>
+            <div className="dashboard-center-marketplace">
+              <div className="MARKETPLACE_CONTENT">
+                <TabPan tabIndex={1}>
+                  <Cards
+                    type="alns"
+                    ETHRate={ETHRate}
+                    cardLayout={cardLayout}
+                    setCardLayout={setCardLayout}
+                    checkboxes={checkboxes}
+                    searchInput={searchInput}
+                  />
+                </TabPan>
 
-            <TabPan tabIndex={2}>
-              <Cards
-                type="lands"
-                ETHRate={ETHRate}
-                cardLayout={cardLayout}
-                setCardLayout={setCardLayout}
-                checkboxes={checkboxes}
-                searchInput={searchInput}
-              />
-            </TabPan>
+                <TabPan tabIndex={2}>
+                  <Cards
+                    type="lands"
+                    ETHRate={ETHRate}
+                    cardLayout={cardLayout}
+                    setCardLayout={setCardLayout}
+                    checkboxes={checkboxes}
+                    searchInput={searchInput}
+                  />
+                </TabPan>
 
-            <TabPan tabIndex={4}>
-              <Cards
-                type="items"
-                ETHRate={ETHRate}
-                cardLayout={cardLayout}
-                setCardLayout={setCardLayout}
-                checkboxes={checkboxes}
-                searchInput={searchInput}
-              />
-            </TabPan>
+                <TabPan tabIndex={4}>
+                  <Cards
+                    type="items"
+                    ETHRate={ETHRate}
+                    cardLayout={cardLayout}
+                    setCardLayout={setCardLayout}
+                    checkboxes={checkboxes}
+                    searchInput={searchInput}
+                  />
+                </TabPan>
 
-            <TabPan tabIndex={5}>
-              <Cards
-                type="enchants"
-                ETHRate={ETHRate}
-                cardLayout={cardLayout}
-                setCardLayout={setCardLayout}
-                checkboxes={checkboxes}
-                searchInput={searchInput}
-              />
-            </TabPan>
+                <TabPan tabIndex={5}>
+                  <Cards
+                    type="enchants"
+                    ETHRate={ETHRate}
+                    cardLayout={cardLayout}
+                    setCardLayout={setCardLayout}
+                    checkboxes={checkboxes}
+                    searchInput={searchInput}
+                  />
+                </TabPan>
 
-            <TabPan tabIndex={6}>
-              <Cards
-                type="mounts"
-                ETHRate={ETHRate}
-                cardLayout={cardLayout}
-                setCardLayout={setCardLayout}
-                checkboxes={checkboxes}
-                searchInput={searchInput}
-              />
-            </TabPan>
+                <TabPan tabIndex={6}>
+                  <Cards
+                    type="mounts"
+                    ETHRate={ETHRate}
+                    cardLayout={cardLayout}
+                    setCardLayout={setCardLayout}
+                    checkboxes={checkboxes}
+                    searchInput={searchInput}
+                  />
+                </TabPan>
 
-            <TabPan tabIndex={7}>
-              <Cards
-                type="mysteryboxes"
-                ETHRate={ETHRate}
-                cardLayout={cardLayout}
-                setCardLayout={setCardLayout}
-                checkboxes={checkboxes}
-                searchInput={searchInput}
-              />
-            </TabPan>
+                <TabPan tabIndex={7}>
+                  <Cards
+                    type="mysteryboxes"
+                    ETHRate={ETHRate}
+                    cardLayout={cardLayout}
+                    setCardLayout={setCardLayout}
+                    checkboxes={checkboxes}
+                    searchInput={searchInput}
+                  />
+                </TabPan>
+              </div>
+
+              <div
+                ref={menuRef}
+                className={`dashboard-right ${isFilterBarOpen ? "open" : ""}`}
+              >
+                <div>
+                  <img
+                    src={crossIcon}
+                    onClick={() => setIsFilterBarOpen(false)}
+                    className="cross-icon"
+                    alt=""
+                  />
+                  <div className="filter-title mb-20px">
+                    <p className="fs-20px weight-5 white">Filter (20)</p>
+                    <button
+                      onClick={() =>
+                        setCheckboxes({
+                          alns: false,
+                          legendary: false,
+                          rare: false,
+                          epic: false,
+                          common: false,
+                          unCommon: false,
+                        })
+                      }
+                      className="pointer pink fs-14px weight-5"
+                    >
+                      Clear Filter
+                    </button>
+                  </div>
+
+                  <div className="stats-btns mb-20px">
+                    <button className="fs-14px white pointer weight-5 active">
+                      General
+                    </button>
+                    <button className="fs-14px white pointer weight-5">
+                      Stats
+                    </button>
+                  </div>
+
+                  <p className="fs-12px weight-5 light-white-2 mb-10px">
+                    SEARCH
+                  </p>
+
+                  <div className="filter-input mb-30px">
+                    <input
+                      type="text"
+                      className="white"
+                      value={searchInput}
+                      onChange={(event) => setSearchInput(event.target.value)}
+                    />
+                    <BiSearch className="pink" />
+                  </div>
+
+                  <div className="mb-30px">
+                    <p className="fs-12px weight-5 light-white-2 mb-15px">
+                      RACE
+                    </p>
+                    <Checkbox
+                      onChange={(e) =>
+                        setCheckboxes({
+                          ...checkboxes,
+                          [e.target.name.toLowerCase()]: e.target.checked,
+                        })
+                      }
+                      checked={checkboxes.alns}
+                      title="Alns"
+                    />
+                  </div>
+
+                  <p className="fs-12px weight-5 light-white-2 mb-15px">
+                    RARITY
+                  </p>
+                  <div className="filter-checkboxes">
+                    <Checkbox
+                      onChange={(e) =>
+                        setCheckboxes({
+                          ...checkboxes,
+                          [e.target.name.toLowerCase()]: e.target.checked,
+                        })
+                      }
+                      checked={checkboxes.legendary}
+                      title="Legendary"
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        setCheckboxes({
+                          ...checkboxes,
+                          [e.target.name.toLowerCase()]: e.target.checked,
+                        })
+                      }
+                      checked={checkboxes.epic}
+                      title="Epic"
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        setCheckboxes({
+                          ...checkboxes,
+                          [e.target.name.toLowerCase()]: e.target.checked,
+                        })
+                      }
+                      checked={checkboxes.rare}
+                      title="Rare"
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        setCheckboxes({
+                          ...checkboxes,
+                          [e.target.name.toLowerCase()]: e.target.checked,
+                        })
+                      }
+                      checked={checkboxes.common}
+                      title="Common"
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        setCheckboxes({
+                          ...checkboxes,
+                          unCommon: e.target.checked,
+                        })
+                      }
+                      checked={checkboxes.unCommon}
+                      title="Uncommon"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* <TabPan tabIndex={3}>
               <div className="marketplace-dashboard-body">
@@ -371,7 +502,9 @@ function MarketPlace() {
 
         {/* FOR SIDEBAR LINKS */}
         <TabPan tabIndex="Dashboard">
-          <Dashboard />
+          <div className="MARKETPLACE_CONTENT">
+            <Dashboard />
+          </div>
         </TabPan>
 
         <TabPan tabIndex="Inventory">
@@ -395,125 +528,6 @@ function MarketPlace() {
       </div>
 
       {/*  */}
-
-      <div
-        ref={menuRef}
-        className={`dashboard-right ${isFilterBarOpen ? "open" : ""}`}
-      >
-        <div>
-          <img
-            src={crossIcon}
-            onClick={() => setIsFilterBarOpen(false)}
-            className="cross-icon"
-            alt=""
-          />
-          <div className="filter-title mb-20px">
-            <p className="fs-20px weight-5 white">Filter (20)</p>
-            <button
-              onClick={() =>
-                setCheckboxes({
-                  alns: false,
-                  legendary: false,
-                  rare: false,
-                  epic: false,
-                  common: false,
-                  unCommon: false,
-                })
-              }
-              className="pointer pink fs-14px weight-5"
-            >
-              Clear Filter
-            </button>
-          </div>
-
-          <div className="stats-btns mb-20px">
-            <button className="fs-14px white pointer weight-5 active">
-              General
-            </button>
-            <button className="fs-14px white pointer weight-5">Stats</button>
-          </div>
-
-          <p className="fs-12px weight-5 light-white-2 mb-10px">SEARCH</p>
-
-          <div className="filter-input mb-30px">
-            <input
-              type="text"
-              className="white"
-              value={searchInput}
-              onChange={(event) => setSearchInput(event.target.value)}
-            />
-            <BiSearch className="pink" />
-          </div>
-
-          <div className="mb-30px">
-            <p className="fs-12px weight-5 light-white-2 mb-15px">RACE</p>
-            <Checkbox
-              onChange={(e) =>
-                setCheckboxes({
-                  ...checkboxes,
-                  [e.target.name.toLowerCase()]: e.target.checked,
-                })
-              }
-              checked={checkboxes.alns}
-              title="Alns"
-            />
-          </div>
-
-          <p className="fs-12px weight-5 light-white-2 mb-15px">RARITY</p>
-          <div className="filter-checkboxes">
-            <Checkbox
-              onChange={(e) =>
-                setCheckboxes({
-                  ...checkboxes,
-                  [e.target.name.toLowerCase()]: e.target.checked,
-                })
-              }
-              checked={checkboxes.legendary}
-              title="Legendary"
-            />
-            <Checkbox
-              onChange={(e) =>
-                setCheckboxes({
-                  ...checkboxes,
-                  [e.target.name.toLowerCase()]: e.target.checked,
-                })
-              }
-              checked={checkboxes.epic}
-              title="Epic"
-            />
-            <Checkbox
-              onChange={(e) =>
-                setCheckboxes({
-                  ...checkboxes,
-                  [e.target.name.toLowerCase()]: e.target.checked,
-                })
-              }
-              checked={checkboxes.rare}
-              title="Rare"
-            />
-            <Checkbox
-              onChange={(e) =>
-                setCheckboxes({
-                  ...checkboxes,
-                  [e.target.name.toLowerCase()]: e.target.checked,
-                })
-              }
-              checked={checkboxes.common}
-              title="Common"
-            />
-            <Checkbox
-              onChange={(e) =>
-                setCheckboxes({
-                  ...checkboxes,
-                  unCommon: e.target.checked,
-                })
-              }
-              checked={checkboxes.unCommon}
-              title="Uncommon"
-            />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

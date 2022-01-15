@@ -1,3 +1,74 @@
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-auto-rows: 1fr;
+}
+
+.gallery_right {
+  background-color: #2d134e;
+  /* padding: 2rem; */
+}
+
+.gallery_right h1 {
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+.galleryAccordions {
+  /* sadkasd */
+}
+
+.accordion {
+  border-bottom: 1px solid #3a1f61;
+}
+
+.accordion_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.8rem 2rem;
+  transition: all 0.2s ease;
+}
+.accordion_btn:hover {
+  background-color: #1e0f31;
+}
+.accordion.open .accordion_btn {
+  background-color: #1e0f31;
+}
+
+.accordion_btn span {
+  display: flex;
+  transition: all 0.2s ease;
+}
+
+.accordion.open .accordion_btn span {
+  transform: rotate(180deg);
+}
+
+.accordion main {
+  transition: all 0.2s ease;
+  height: 0;
+  overflow: hidden;
+}
+
+.accordionBody > button {
+  padding: 1rem 3rem;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordionBody > button:hover {
+  background-color: #8745c3;
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+
 .galleryImg {
   display: block;
   width: 100%;
