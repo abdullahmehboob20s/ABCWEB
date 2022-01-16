@@ -6,6 +6,7 @@ import Tabs from "components/Tabs/Tabs";
 import Tab from "components/Tabs/Tab";
 import TabPan from "components/Tabs/TabPan";
 import { AiOutlineCaretRight } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function RecentlyListed() {
   return (
@@ -183,10 +184,13 @@ function RecentlyListed() {
           </div>
         </div>
 
-        <p className={`${styles.linkToNextPage} weight-5 fs-16px`}>
+        <Link
+          to="/marketplace/collection"
+          className={`${styles.linkToNextPage} weight-5 fs-16px`}
+        >
           View More On Marketplace
           <AiOutlineCaretRight />
-        </p>
+        </Link>
       </div>
     </Tabs>
   );

@@ -17,7 +17,9 @@ const StatCard = ({ img, value }) => {
       <div className="card_stats_card_icon">
         <img src={img} alt="" />
       </div>
-      <div className="card_stats_card_count fs-16px white weight-6">30</div>
+      <div className="card_stats_card_count fs-16px white weight-6">
+        {Math.floor(Math.random() * 50)}
+      </div>
     </div>
   );
 };

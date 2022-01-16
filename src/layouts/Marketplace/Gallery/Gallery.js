@@ -83,7 +83,7 @@ function Gallery() {
             <Accordion
               setImage={setImage}
               image={image}
-              bodyContent={[{ title: "Fur Wrap", content: { img: Fur } }]}
+              bodyContent={[{ title: "Crystal", content: { img: Fur } }]}
               title="Fur"
             />
             <Accordion
@@ -95,7 +95,7 @@ function Gallery() {
             <Accordion
               setImage={setImage}
               image={image}
-              bodyContent={[{ title: "Green Slaiva", content: { img: mouth } }]}
+              bodyContent={[{ title: "Green vomit", content: { img: mouth } }]}
               title="Mouth"
             />
             <Accordion

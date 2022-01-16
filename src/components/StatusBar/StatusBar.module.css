@@ -39,9 +39,9 @@
 
 .card img {
   width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
+  /* height: 60px; */
+  /* border-radius: 50%; */
+  /* overflow: hidden; */
   margin-right: 1.2rem;
   user-select: none;
 }

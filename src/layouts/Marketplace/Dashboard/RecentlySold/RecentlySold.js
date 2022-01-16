@@ -6,6 +6,7 @@ import Tabs from "components/Tabs/Tabs";
 import Tab from "components/Tabs/Tab";
 import TabPan from "components/Tabs/TabPan";
 import { AiOutlineCaretRight } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function RecentlySold() {
   return (
@@ -82,11 +83,11 @@ function RecentlySold() {
                     duration="a minute ago"
                     analytics={{
                       buyer: {
-                        name: "Manager Aji",
+                        name: "Tom",
                         ethAddress: "02ff5c04009306fe6de9d5a7a54a02ac775b3889",
                       },
                       seller: {
-                        name: "Darky",
+                        name: "Maxville",
                         ethAddress: "02ff5c04009306fe6de9d5a7a54a02ac775b3889",
                       },
                     }}
@@ -192,10 +193,13 @@ function RecentlySold() {
           </div>
         </div>
 
-        <p className={`${styles.linkToNextPage} weight-5 fs-16px`}>
+        <Link
+          to="/marketplace/collection"
+          className={`${styles.linkToNextPage} weight-5 fs-16px`}
+        >
           View More On Marketplace
           <AiOutlineCaretRight />
-        </p>
+        </Link>
       </div>
     </Tabs>
   );

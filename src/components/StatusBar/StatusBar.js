@@ -1,14 +1,19 @@
 import React from "react";
 import styles from "./StatusBar.module.css";
+
 import ethereumIcon from "assets/images/ethereum-2.png";
+import alien from "assets/images/alien.png";
+import ufo from "assets/images/ufo-3.png";
+
 import Tab from "components/Tabs/Tab";
 import Tabs from "components/Tabs/Tabs";
 import TabPan from "components/Tabs/TabPan";
+import DataContext from "context/DataContext";
 
-const Card = ({ title, value }) => {
+const Card = ({ title, value, img }) => {
   return (
     <div className={styles.card}>
-      <img src={ethereumIcon} className="invert" alt="" />
+      <img src={img} className="invert" alt="" />
       <div>
         <p className="uppercase light-white fs-12px weight-5 mb-5px">{title}</p>
         <TabPan tabIndex="24h">
@@ -32,6 +37,8 @@ const Card = ({ title, value }) => {
 };
 
 function StatusBar() {
+  const { ETHRate } = React.useContext(DataContext);
+
   return (
     <Tabs defaultTab="24h">
       <div className={styles.statusBar}>
@@ -60,10 +67,12 @@ function StatusBar() {
         </div>
         <div className={`${styles.statusBarBody}`}>
           <Card
-            value={{ twentyFour: 0, seven: 10, thirty: 66 }}
+            value={{ twentyFour: ETHRate, seven: ETHRate, thirty: ETHRate }}
             title="ETH-USD Price"
+            img={ethereumIcon}
           />
           <Card
+            img={ufo}
             value={{
               twentyFour: (
                 <>
@@ -84,6 +93,7 @@ function StatusBar() {
             title="TOTAL VOLUME"
           />
           <Card
+            img={alien}
             value={{ twentyFour: "36,724", seven: "36,678", thirty: "37,432" }}
             title="ALNS SOLD"
           />
