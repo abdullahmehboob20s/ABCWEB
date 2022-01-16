@@ -60,10 +60,8 @@ const Accordion = ({ title, bodyContent, setImage, image }) => {
                   data.content.img === image ? styles.active : ""
                 } `}
                 onClick={() => {
-                  // setIsSelectedInsideParent(
-
-                  //   );
                   setImage(data.content.img);
+                  console.log("img", data.content.img);
                 }}
               >
                 {data.title}
