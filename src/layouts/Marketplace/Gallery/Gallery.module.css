@@ -114,6 +114,10 @@
   margin-top: 2rem;
 }
 
+.downloadImage > button {
+  display: none;
+}
+
 /* .galleryBtns > :not(:last-child) {
   margin-right: 1rem;
 } */
@@ -186,6 +190,10 @@
     margin: 2rem;
     margin-bottom: 0rem;
     cursor: pointer;
+  }
+
+  .downloadImage > button {
+    display: block;
   }
 }
 @media (max-width: 600px) {
