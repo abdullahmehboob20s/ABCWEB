@@ -36,20 +36,7 @@ function App() {
               </Suspense>
             }
           >
-            <Route path="collection" element={<Collection />}>
-              <Route path="" element={<CardComponent type="alns" />} />
-              <Route path="lands" element={<CardComponent type="lands" />} />
-              <Route path="items" element={<CardComponent type="items" />} />
-              <Route
-                path="enchants"
-                element={<CardComponent type="enchants" />}
-              />
-              <Route path="mounts" element={<CardComponent type="mounts" />} />
-              <Route
-                path="mysteryboxes"
-                element={<CardComponent type="mysteryboxes" />}
-              />
-            </Route>
+            <Route path="collection" element={<Collection />}></Route>
             <Route path="gallery" element={<Gallery />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route
