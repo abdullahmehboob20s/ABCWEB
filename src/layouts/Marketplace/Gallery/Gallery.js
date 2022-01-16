@@ -13,6 +13,7 @@ import UrlImageDownloader from "react-url-image-downloader";
 import crossIcon from "assets/images/cross-icon.png";
 import OutsideClickDetector from "hooks/OutsideClickDetector";
 import Accordion from "./Accordion";
+import Ear from "assets/images/ETH_earring.png";
 
 function Gallery() {
   const [image, setImage] = useState(baseCharacter);
@@ -94,6 +95,12 @@ function Gallery() {
               image={image}
               bodyContent={[{ title: "Green Slaiva", content: { img: mouth } }]}
               title="Mouth"
+            />
+            <Accordion
+              setImage={setImage}
+              image={image}
+              bodyContent={[{ title: "ETH Earring", content: { img: Ear } }]}
+              title="Ear"
             />
           </div>
 
