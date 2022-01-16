@@ -255,7 +255,10 @@
 
   .creature-card.everThingColumn.row > :last-child {
     /* border: 2px solid red; */
-    justify-content: end;
+    display: flex;
+    /* justify-content: end !important; */
+    justify-self: flex-end;
+    /* justify-content: end; */
   }
 
   .creature-card_stats {

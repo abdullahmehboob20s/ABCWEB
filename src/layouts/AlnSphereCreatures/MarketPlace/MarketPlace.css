@@ -32,10 +32,13 @@
   height: 60px;
   display: flex;
   align-items: center;
-  gap: 18px;
   padding-left: 28px;
   position: relative;
   transition: all 0.2s ease;
+}
+
+.sidebar-tab > :first-child {
+  margin-right: 18px;
 }
 
 .sidebar-tab.active {
@@ -137,19 +140,24 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
 }
 
 .dashboard-center-head-left {
   display: flex;
   align-items: center;
-  gap: 24px;
+  margin-right: 1rem;
 }
 
 .dashboard-center-head-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+}
+
+.dashboard-center-head-left > :not(:last-child) {
+  margin-right: 24px;
+}
+.dashboard-center-head-right > :not(:last-child) {
+  margin-right: 10px;
 }
 
 .layout-toggler {
@@ -418,14 +426,24 @@
   }
 
   .dashboard-center-head-left {
-    gap: 24px;
+    /* gap: 24px; */
     flex: 1;
     justify-content: space-between;
+    margin-right: 0;
   }
 
   .dashboard-center-head-right {
     flex: 1;
     justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .dashboard-center-head-left > :not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .dashboard-center-head-right > :not(:last-child) {
+    margin-right: 0px;
   }
 }
 

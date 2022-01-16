@@ -21,7 +21,7 @@ function RecentlySold() {
               className={`${styles.btn} fs-14px white weight-5`}
               activeClassName={styles.active}
             >
-              CreaturesCards
+              Alns
             </Tab>
             <Tab
               tabIndex="Lands"
