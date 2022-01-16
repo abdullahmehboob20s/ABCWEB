@@ -31,8 +31,10 @@ function Gallery() {
             <img src={image} className={styles.galleryImg} alt="" />
 
             <div className={styles.downloadImage}>
-              <UrlImageDownloader imageUrl={image} />
-
+              {/* <UrlImageDownloader imageUrl={image} /> */}
+              <a href={image} download={true}>
+                Download
+              </a>
               <button onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                 Filters
               </button>
