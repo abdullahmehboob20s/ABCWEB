@@ -8,6 +8,7 @@ import cardAsset2 from "assets/images/card-assets/9.png";
 import cardAsset3 from "assets/images/card-assets/22.png";
 import cardAsset4 from "assets/images/card-assets/7.png";
 import cardAsset5 from "assets/images/card-assets/4.png";
+import cardAsset6 from "assets/images/card-assets/21.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const StatCard = ({ img, value }) => {
@@ -75,9 +76,11 @@ function CreatureCard({
         {stats ? (
           <div className="creature-card_stats">
             <StatCard img={cardAsset3} />
+            <StatCard img={cardAsset6} />
             <StatCard img={cardAsset2} />
             <StatCard img={cardAsset1} />
             <StatCard img={cardAsset4} />
+            <StatCard img={cardAsset5} />
           </div>
         ) : (
           ""

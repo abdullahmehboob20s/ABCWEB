@@ -39,14 +39,6 @@ function Navbar() {
           className="hamburger"
           alt=""
         />
-        <img
-          src={
-            "https://ik.imagekit.io/6pl7k4a01ha/filter_YCnS7Usoy.png?updatedAt=1639329322918"
-          }
-          onClick={() => setIsFilterBarOpen(!isFilterBarOpen)}
-          className="filter"
-          alt=""
-        />
 
         <button className="nav-logout-btn pointer fs-16px white weight-5 bg-purple-gradient">
           <FiLogIn /> Login

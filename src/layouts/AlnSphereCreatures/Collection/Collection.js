@@ -7,6 +7,7 @@ import crossIcon from "assets/images/cross-icon.png";
 import Tabs from "components/Tabs/Tabs";
 import { NavLink, Outlet } from "react-router-dom";
 import DataContext from "context/DataContext";
+import OutsideClickDetector from "hooks/OutsideClickDetector";
 
 function Collection() {
   const {
@@ -17,7 +18,6 @@ function Collection() {
   } = useContext(AlnSphereCreaturesContext_Provider);
   const [isOpen, setIsOpen] = useState(false);
   const [activeTabIndexValue, setActiveTabIndexValue] = useState("Creatures");
-  const menuRef = React.useRef();
 
   const {
     ETHRate,
@@ -28,6 +28,10 @@ function Collection() {
     checkboxes,
     setCheckboxes,
   } = useContext(DataContext);
+
+  let menuRef = OutsideClickDetector(() => {
+    setIsFilterBarOpen(false);
+  });
 
   return (
     <>
@@ -131,13 +135,21 @@ function Collection() {
       </div>
 
       <div className="dashboard-center-marketplace">
+        <img
+          src={
+            "https://ik.imagekit.io/6pl7k4a01ha/filter_YCnS7Usoy.png?updatedAt=1639329322918"
+          }
+          onClick={() => setIsFilterBarOpen(!isFilterBarOpen)}
+          className={styles.filter}
+          alt=""
+        />
         <div className="MARKETPLACE_CONTENT">
           <Outlet />
         </div>
 
         <div
-          ref={menuRef}
           className={`dashboard-right ${isFilterBarOpen ? "open" : ""}`}
+          ref={menuRef}
         >
           <div>
             <img

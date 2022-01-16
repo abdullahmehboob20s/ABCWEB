@@ -9,6 +9,9 @@
 .gallery_right {
   background-color: #2d134e;
   /* padding: 2rem; */
+  overflow-y: auto;
+  height: calc(100vh - 56px);
+  padding-bottom: 2rem;
 }
 
 .gallery_right h1 {
@@ -24,64 +27,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.accordion {
-  border-bottom: 1px solid #3a1f61;
-}
-
-.accordion_btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0.8rem 2rem;
-  transition: all 0.2s ease;
-}
-.accordion_btn:hover {
-  background-color: #1e0f31;
-}
-.accordion.open .accordion_btn {
-  background-color: #1e0f31;
-}
-.accordion.active .accordion_btn {
-  background-color: #1e0f318c;
-}
-
-.accordion_btn span {
-  display: flex;
-  transition: all 0.2s ease;
-}
-
-.accordion.open .accordion_btn span {
-  transform: rotate(180deg);
-}
-
-.accordion main {
-  transition: all 0.2s ease;
-  height: 0;
-  overflow: hidden;
-}
-
-.accordionBody {
-  border-right: 1px solid rgba(255, 255, 255, 0.404);
-  border-left: 1px solid rgba(255, 255, 255, 0.404);
-  /* border-bottom: 1px solid rgba(255, 255, 255, 0.404); */
-}
-
-.accordionBody > button {
-  padding: 1rem 3rem;
-  transition: all 0.2s ease;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-}
-
-.accordionBody > button:hover {
-  background-color: #8745c3;
-}
-.accordionBody > button.active {
-  background-color: #8745c3;
 }
 
 .gallery_right_btns {
@@ -101,7 +46,16 @@
 .gallery_right_btns button:hover {
   opacity: 1;
 }
+.downloadImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
 
+.downloadImage > div {
+  margin-right: 1rem;
+}
 .downloadImage img {
   display: none !important;
 }
@@ -109,15 +63,30 @@
 .downloadImage a {
   width: fit-content;
   margin: 0 auto;
-  margin-top: 2rem;
   padding: 1rem 2rem;
   cursor: pointer;
   border-radius: 5px;
   background-color: #8745c3;
   transition: all 0.1s ease;
   display: block;
+  font-size: 16px;
 }
 .downloadImage a:hover {
+  opacity: 0.8;
+}
+
+.downloadImage > button {
+  width: fit-content;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #eb4e83;
+  transition: all 0.1s ease;
+  font-size: 16px;
+  color: white;
+}
+
+.downloadImage button:hover {
   opacity: 0.8;
 }
 
@@ -181,9 +150,42 @@
   color: white !important;
 }
 
+.crossIcon {
+  display: none;
+}
+
 @media (max-width: 1000px) {
   .galleryWrapper {
-    padding: 2rem;
+    /* padding: 2rem; */
+  }
+}
+
+@media (max-width: 760px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .gallery_right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    z-index: 10000000000 !important;
+    transition: all 0.3s ease;
+    transform: translateX(300px);
+  }
+
+  .gallery_right.open {
+    transform: translateX(0px);
+    box-shadow: -10px 0 10px rgba(17, 19, 27, 0.7);
+  }
+
+  .crossIcon {
+    display: block;
+    width: 22px;
+    margin: 2rem;
+    margin-bottom: 0rem;
+    cursor: pointer;
   }
 }
 @media (max-width: 600px) {
@@ -191,6 +193,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     width: 100%;
+  }
+
+  .gallery_right {
+    width: 260px;
   }
 }
 @media (max-width: 370px) {

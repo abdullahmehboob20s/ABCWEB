@@ -61,7 +61,7 @@ function StatusBar() {
         <div className={`${styles.statusBarBody}`}>
           <Card
             value={{ twentyFour: 0, seven: 10, thirty: 66 }}
-            title="TOTAL SALE"
+            title="ETH-USD Price"
           />
           <Card
             value={{
@@ -85,7 +85,7 @@ function StatusBar() {
           />
           <Card
             value={{ twentyFour: "36,724", seven: "36,678", thirty: "37,432" }}
-            title="AXIE SOLD"
+            title="ALNS SOLD"
           />
         </div>
       </div>

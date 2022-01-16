@@ -54,7 +54,11 @@ function Home() {
         </div>
       ) : null}
 
-      <Link to="/marketplace" target="_blank" className="dashboard-call-center">
+      <Link
+        to="/marketplace/collection"
+        target="_blank"
+        className="dashboard-call-center"
+      >
         <AiTwotoneShop />
       </Link>
 

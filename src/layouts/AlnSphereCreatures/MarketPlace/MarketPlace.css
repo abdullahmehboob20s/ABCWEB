@@ -284,12 +284,13 @@
     background-color: #2d134e;
     width: 260px;
     transition: all 0.2s ease;
-    z-index: 1000000000;
 
-    overflow-y: scroll;
+    z-index: 10000000000000 !important;
+    overflow-y: auto;
   }
   .dashboard-right.open {
     right: 0;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.7);
   }
 
   .dashboard-left {

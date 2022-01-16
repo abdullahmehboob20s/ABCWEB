@@ -61,22 +61,12 @@
   display: none;
 }
 
-.filter {
-  display: none;
-}
-
 @media (max-width: 1200px) {
   .navbar {
     grid-template-columns: 230px 1fr auto;
   }
 
   .hamburger {
-    display: block;
-    width: 28px;
-    filter: invert(1);
-    cursor: pointer;
-  }
-  .filter {
     display: block;
     width: 28px;
     filter: invert(1);

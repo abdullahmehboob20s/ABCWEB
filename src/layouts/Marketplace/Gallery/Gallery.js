@@ -10,102 +10,17 @@ import Hat from "assets/images/Hat.png";
 import mouth from "assets/images/mouth.png";
 import baseCharacter from "assets/images/baseCharacter.png";
 import UrlImageDownloader from "react-url-image-downloader";
-import { BiChevronDown } from "react-icons/bi";
-
-const Button = ({
-  setImage,
-  image,
-  title,
-  setImagesetName,
-  isResetBtn = false,
-}) => {
-  return (
-    <button
-      className={`fs-16px weight-6 uppercase pointer ${
-        isResetBtn ? styles.resetBtn : ""
-      } ${setImagesetName === image ? styles.active : ""} `}
-      onClick={() => setImage(setImagesetName)}
-    >
-      {title}
-    </button>
-  );
-};
-
-const Accordion = ({ title, bodyContent, setImage, image }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [isSelectedInsideParent, setIsSelectedInsideParent] =
-    React.useState(false);
-  const bodyRef = React.useRef(null);
-  const componentRef = React.useRef();
-
-  const handler = () => {
-    if (bodyRef.current.clientHeight === 0) {
-      bodyRef.current.style.height = bodyRef.current.scrollHeight + "px";
-      setIsOpen(true);
-    } else {
-      bodyRef.current.style.height = 0;
-      setIsOpen(false);
-    }
-  };
-
-  React.useEffect(() => {
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
-    function handleClick(e) {
-      if (componentRef && componentRef.current) {
-        const ref = componentRef.current;
-        if (!ref.contains(e.target)) {
-          // put your action here
-          bodyRef.current.style.height = 0;
-          setIsOpen(false);
-        }
-      }
-    }
-  }, []);
-
-  return (
-    <div
-      className={`${styles.accordion} ${isOpen ? styles.open : ""} ${
-        isSelectedInsideParent ? styles.active : ""
-      }`}
-      ref={componentRef}
-    >
-      <button
-        onClick={handler}
-        className={`${styles.accordion_btn}  pointer fs-18px white weight-5`}
-      >
-        {title}
-        <span className="white">
-          <BiChevronDown size={30} />
-        </span>
-      </button>
-      <main ref={bodyRef}>
-        <div className={styles.accordionBody}>
-          {bodyContent &&
-            bodyContent.map((data, index) => (
-              <button
-                key={index}
-                className={`fs-16px white weight-4 ${
-                  data.content.img === image ? styles.active : ""
-                } `}
-                onClick={() => {
-                  // setIsSelectedInsideParent(
-
-                  //   );
-                  setImage(data.content.img);
-                }}
-              >
-                {data.title}
-              </button>
-            ))}
-        </div>
-      </main>
-    </div>
-  );
-};
+import crossIcon from "assets/images/cross-icon.png";
+import OutsideClickDetector from "hooks/OutsideClickDetector";
+import Accordion from "./Accordion";
 
 function Gallery() {
   const [image, setImage] = useState(baseCharacter);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const sideBarRef = OutsideClickDetector(() => {
+    setIsSidebarOpen(false);
+  });
 
   return (
     <div className={styles.galleryWrapper}>
@@ -116,62 +31,26 @@ function Gallery() {
 
             <div className={styles.downloadImage}>
               <UrlImageDownloader imageUrl={image} />
-            </div>
 
-            {/* <div className={styles.galleryBtns}>
-              <Button
-                image={image}
-                setImage={setImage}
-                title="back"
-                setImagesetName={back}
-              />
-              <Button
-                image={image}
-                setImage={setImage}
-                title="background"
-                setImagesetName={background}
-              />
-              <Button
-                image={image}
-                setImage={setImage}
-                title="clothes"
-                setImagesetName={clothes}
-              />
-              <Button
-                image={image}
-                setImage={setImage}
-                title="eyes"
-                setImagesetName={eyes}
-              />
-              <Button
-                image={image}
-                setImage={setImage}
-                title="Fur"
-                setImagesetName={Fur}
-              />
-              <Button
-                image={image}
-                setImage={setImage}
-                title="Hat"
-                setImagesetName={Hat}
-              />
-              <Button
-                image={image}
-                setImage={setImage}
-                title="mouth"
-                setImagesetName={mouth}
-              />
-              <Button
-                image={image}
-                setImage={setImage}
-                title="reset"
-                setImagesetName={baseCharacter}
-                isResetBtn={true}
-              />
-            </div> */}
+              <button onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+                Filters
+              </button>
+            </div>
           </div>
         </div>
-        <div className={styles.gallery_right}>
+        <div
+          ref={sideBarRef}
+          className={`${styles.gallery_right} ${
+            isSidebarOpen ? styles.open : ""
+          }`}
+        >
+          <img
+            src={crossIcon}
+            className={`${styles.crossIcon} invert`}
+            alt=""
+            onClick={() => setIsSidebarOpen(false)}
+          />
+
           <h1 className="fs-28px white weight-6 mb-20px">Gallery</h1>
           <div className={`${styles.galleryAccordions} mb-30px`}>
             <Accordion

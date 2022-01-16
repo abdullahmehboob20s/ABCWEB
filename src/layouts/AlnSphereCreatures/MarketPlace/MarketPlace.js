@@ -5,20 +5,17 @@ import { FaBoxes } from "react-icons/fa";
 import { MdFavorite } from "react-icons/md";
 import { RiGalleryFill } from "react-icons/ri";
 import crossIcon from "assets/images/cross-icon.png";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { AlnSphereCreaturesContext_Provider } from "pages/AlnSphereCreatures/AlnSphereCreaturesContext";
 import SidebarTab from "./SidebarTab";
+import OutsideClickDetector from "hooks/OutsideClickDetector";
 
 function MarketPlace() {
   const [ETHRate, setETHRate] = useState(3797);
 
-  const {
-    isSidebarOpen,
-    setIsSidebarOpen,
-    isFilterBarOpen,
-    setIsFilterBarOpen,
-  } = useContext(AlnSphereCreaturesContext_Provider);
-  const menuRef = React.useRef();
+  const { isSidebarOpen, setIsSidebarOpen } = useContext(
+    AlnSphereCreaturesContext_Provider
+  );
 
   React.useEffect(() => {
     fetch("https://api.coinbase.com/v2/exchange-rates?currency=ETH")
@@ -34,21 +31,12 @@ function MarketPlace() {
           console.log(error);
         }
       );
-
-    const handler = (e) => {
-      if (!menuRef.current?.contains(e.target)) {
-        setIsFilterBarOpen(false);
-        setIsSidebarOpen(false);
-        // setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handler);
-
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
   }, []);
+
+  let menuRef = OutsideClickDetector(() => {
+    // setIsFilterBarOpen(false);
+    setIsSidebarOpen(false);
+  });
 
   return (
     <div className="dashboard bg-purple-2">
