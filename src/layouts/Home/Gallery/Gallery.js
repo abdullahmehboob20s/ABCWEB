@@ -26,7 +26,7 @@ function Gallery() {
             centeredSlides={true}
             slidesPerView={"auto"}
             spaceBetween={100}
-            speed = {100}
+            speed={100}
             loop={true}
             coverflowEffect={{
               rotate: 0,

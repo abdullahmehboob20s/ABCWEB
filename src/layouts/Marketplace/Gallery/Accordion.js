@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Accordion.module.css";
 import { BiChevronDown } from "react-icons/bi";
 
-const Accordion = ({ title, bodyContent, setImage, image }) => {
+const Accordion = ({ title, bodyContent, type, onClick, children }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isSelectedInsideParent, setIsSelectedInsideParent] =
     React.useState(false);
@@ -51,23 +51,24 @@ const Accordion = ({ title, bodyContent, setImage, image }) => {
         </span>
       </button>
       <main ref={bodyRef}>
-        <div className={styles.accordionBody}>
-          {bodyContent &&
-            bodyContent.map((data, index) => (
-              <button
-                key={index}
-                className={`fs-16px white weight-4 ${
-                  data.content.img === image ? styles.active : ""
-                } `}
-                onClick={() => {
-                  setImage(data.content.img);
-                  console.log("img", data.content.img);
-                }}
-              >
-                {data.title}
-              </button>
-            ))}
-        </div>
+        {children ? (
+          children
+        ) : (
+          <div className={styles.accordionBody}>
+            {bodyContent &&
+              bodyContent.map((data, index) => (
+                <button
+                  key={index}
+                  className={`fs-16px white weight-4 ${
+                    type === data.content.img ? styles.active : ""
+                  } `}
+                  onClick={() => onClick(data)}
+                >
+                  {data.title}
+                </button>
+              ))}
+          </div>
+        )}
       </main>
     </div>
   );
