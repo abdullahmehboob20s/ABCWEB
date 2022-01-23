@@ -140,7 +140,7 @@ function Gallery() {
     furItem: default_fur,
     clothe: "",
     ears: "",
-    eyes: default_eyes,
+    eyes: "",
     head: "",
     mouth: defaultMouth,
     nose: nose,
